@@ -1,0 +1,147 @@
+@import "./common";
+
+.allComments {
+  &.hide {
+    display: none;
+  }
+  &.on {
+    transform: translateX(0);
+  }
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  padding-top: 45px;
+  transform: translateX(calc(100% + 50px));
+  flex-direction: column;
+  flex-grow: 0;
+  flex-shrink: 0;
+  z-index: 100;
+  border-left: 1px solid rgba(15, 15, 15, 0.1);
+  transition: transform 2500ms ease;
+  height: 100vh;
+  width: 385px;
+  pointer-events: none;
+  .topBar__page-tool {
+    height: 45px;
+  }
+  .allComments__inner {
+    @include hiddenScrollBar;
+    overflow-y: scroll;
+    width: 100%;
+    height: 100%;
+    background-color: #ffff;
+  }
+  .allComments__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5%;
+    font-size: 13px;
+    box-sizing: border-box;
+    span {
+      font-weight: 600;
+    }
+  }
+  .comments {
+    @include hiddenScrollBar;
+    width: 100%;
+    position: relative;
+    pointer-events: auto;
+    padding: 0;
+    margin: 0;
+    max-height: 40%;
+    overflow-y: scroll;
+  }
+  .comments__comments-group {
+    width: inherit;
+  }
+  .commentBlock__header {
+    .information {
+      max-width: calc(100% - 90px);
+    }
+    .information {
+      flex-shrink: 1;
+      flex-grow: 1;
+    }
+  }
+  .allComments__btn-group {
+    pointer-events: auto;
+    .btn-select {
+      margin-left: 10px;
+      color: $itemText;
+      font-size: inherit;
+      font-weight: inherit;
+    }
+    .type-btn-group {
+      display: none;
+    }
+  }
+  .allComments__btn-group.open {
+    position: relative;
+    .type-btn-group {
+      @include modalStyle;
+      width: 180px;
+      z-index: 110;
+      position: absolute;
+      top: 110%;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      button {
+        padding: 10px 15px;
+        &:hover {
+          background-color: $itemHover;
+        }
+      }
+      button:last-child {
+        padding-top: 10px;
+      }
+    }
+  }
+  .comment {
+    &:hover {
+      background-color: rgba(55, 53, 47, 0.03);
+    }
+  }
+  .no-result {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    & > div {
+      width: 100%;
+      position: absolute;
+      top: 30%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      color: $mud;
+      font-weight: bold;
+    }
+    p {
+      width: 90%;
+      text-align: center;
+    }
+    p:first-child {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+    p:last-child {
+      font-size: 14px;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .allComments {
+    width: calc(100vw - 300px);
+    border-left: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .allComments {
+    width: 100%;
+    border-left: none;
+  }
+}

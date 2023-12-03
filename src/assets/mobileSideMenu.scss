@@ -1,0 +1,89 @@
+@import "./common";
+
+#mobileSideMenu {
+  position: absolute;
+  transition: transform 1000ms cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 50;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(240, 240, 240);
+  .inner {
+    position: relative;
+  }
+  .top {
+    height: 2rem;
+    background-color: #ffff;
+    text-align: center;
+    position: relative;
+    div {
+      line-height: 2rem;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    div,
+    button {
+      height: 100%;
+    }
+    button {
+      position: absolute;
+      top: 0;
+      right: 1rem;
+      font-size: 1rem;
+    }
+  }
+  .contents {
+    width: inherit;
+    height: calc(100vh - 1.5rem);
+  }
+  #commandBlock,
+  #pageMenu,
+  .menu__color,
+  .menu,
+  .menu .mainMenu,
+  .menu .menu__sideMenu,
+  #linkLoader {
+    @include resetModal;
+    position: relative;
+    width: 100vw;
+    height: inherit;
+  }
+  .menu {
+    .menu__inner,
+    .menu__edit {
+      width: 100vw;
+      height: inherit;
+    }
+    .menu__search {
+      display: none;
+    }
+    .mainMenu {
+      .menu__inner {
+        padding: 0;
+      }
+    }
+    .menu__edit {
+      position: relative;
+    }
+    .menu__editBtns {
+      padding-top: 14px;
+    }
+    .edit__inform {
+      position: absolute;
+      bottom: 3rem;
+      left: 0;
+      width: 100vw;
+      font-size: 14px;
+    }
+  }
+  .menu .menu___sideMenu {
+    position: absolute;
+    background-color: rgb(240, 240, 240);
+    top: 0;
+    left: 0;
+    z-index: 60;
+    width: inherit;
+    height: inherit;
+    overflow-y: scroll;
+  }
+}

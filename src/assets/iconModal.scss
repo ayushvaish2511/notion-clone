@@ -1,0 +1,111 @@
+@import "./common";
+
+#iconModal {
+  @include modalStyle;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 170x;
+  button:hover {
+    background-color: $itemHover;
+  }
+  .header,
+  .body {
+    padding: 10px;
+  }
+  .header {
+    width: 100%;
+    height: fit-content;
+    padding-bottom: 0px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    border-bottom: 1px solid $itemText;
+    & > div {
+      display: flex;
+      button:first-child {
+        margin-right: 5px;
+      }
+    }
+    button {
+      display: flex;
+      align-items: center;
+      padding: 2px;
+    }
+    .btn-category,
+    & > div:last-child {
+      padding-bottom: 6px;
+    }
+    .btn-category {
+      width: fit-content;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+    & > div:last-child {
+      color: $itemText;
+      button {
+        color: inherit;
+        svg {
+          margin-right: 5px;
+        }
+      }
+    }
+    .bottom-line {
+      position: absolute;
+      top: calc(100% - 1.25px);
+      left: 0;
+      width: 100%;
+      height: 2.5px;
+      background-color: black;
+    }
+  }
+  .btn-emoji {
+    width: 25px;
+    height: 25px;
+    margin : {
+      right: 10px;
+      bottom: 10px;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .body {
+    text-align: center;
+    height: 135px;
+  }
+  .iconModal__body__imgIcon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    div {
+      color: $itemText;
+      font-size: 12px;
+    }
+  }
+  .label-inputImgIcon {
+    width: 80%;
+    height: 32px;
+    line-height: 32px;
+    padding: 5px;
+    background-color: $turkeyBlue;
+    color: #ffff;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 8px;
+    &:hover {
+      background-color: rgb(40, 140, 180);
+    }
+  }
+  #inputImgIcon {
+    position: absolute;
+    top: -99999px;
+  }
+}

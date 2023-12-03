@@ -1,0 +1,333 @@
+@import "./common";
+.comments {
+  display: flex;
+  margin: 8px 0;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid $lightMud;
+  width: 100%;
+  & > div {
+    font-size: 14px;
+  }
+}
+.comment,
+.comment__mainComment,
+.comment__subComments,
+.comments__comments-group,
+.commentBlock {
+  width: inherit;
+}
+.blockId_comments {
+  .comments {
+    display: none;
+  }
+}
+.blockId_comments.open {
+  z-index: 5;
+
+  .comments {
+    display: flex;
+    flex-direction: column;
+  }
+  .btn-comment.btnIcon {
+    display: none;
+  }
+}
+
+.commentBlock__header,
+.commentInput {
+  height: 20px;
+}
+.commentBlock .firstLetter,
+.commentInput .firstLetter .inner {
+  display: flex;
+  width: 20px;
+  height: 20px;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid black;
+  color: black;
+  text-align: center;
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin-right: 5px;
+  div {
+    font : {
+      size: 14px;
+      weight: initial;
+    }
+  }
+}
+.commentInput label {
+  width: 100%;
+}
+.commentInput .firstLetter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: inherit;
+  .inner {
+    margin: 0;
+  }
+  span {
+    display: inline-block;
+  }
+}
+.comment {
+  padding: 5%;
+  border-top: 1px solid $lightMud;
+  z-index: 10;
+  box-sizing: border-box;
+}
+.comment:first-child {
+  border-top: none;
+}
+.page__header .comments {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  .comments__comments-group {
+    width: inherit;
+  }
+  .commentBlock {
+    .commentBlock__header {
+      margin-bottom: 6px;
+    }
+  }
+  .comment {
+    padding: 0;
+  }
+}
+#block-comments {
+  @include hiddenScrollBar;
+  position: absolute;
+  z-index: 20;
+  padding-bottom: 0;
+  @include modalStyle;
+  overflow-y: scroll;
+  .comments__comments-group {
+    width: 100%;
+    margin: 0;
+    padding-bottom: 0;
+  }
+}
+.page__comments {
+  position: relative;
+  .commentBlock {
+    .commentBlock__header .information,
+    .comment__contents {
+      font-size: inherit;
+    }
+  }
+  .commentInput form input {
+    font-size: inherit;
+  }
+  .comments {
+    position: relative;
+  }
+  .comments .commentBlock__mainComment {
+    display: none;
+  }
+}
+
+#commentsInner {
+  position: relative;
+}
+.comments__btn-group-type {
+  border-bottom: 1px solid $lightMud;
+  padding: 0 5%;
+  display: flex;
+  button {
+    height: 100%;
+    margin: 10px 5px;
+  }
+}
+.commentBlock {
+  display: flex;
+  flex-direction: column;
+  margin-top: 8px;
+  width: 100%;
+  & > div {
+    font-size: 14px;
+  }
+
+  .commentBlock__header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+    .information {
+      display: flex;
+      flex-direction: row;
+      font-size: 14px;
+      height: inherit;
+    }
+    .firstLetter {
+      flex-shrink: 0;
+      flex-grow: 0;
+    }
+    .userName {
+      margin: 0 5px;
+      flex-shrink: 1;
+      flex-grow: 1;
+      font-weight: bold;
+      line-height: 20px;
+      text-overflow: ellipsis;
+    }
+    .time {
+      margin: 0;
+      color: $itemSvg;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      flex-grow: 1;
+      flex-shrink: 2;
+      text-overflow: ellipsis;
+    }
+    .comment__tool {
+      display: flex;
+      align-content: center;
+      border: 1px solid $itemSvg;
+      border-radius: 2px;
+      height: 20px;
+      button {
+        width: fit-content;
+        color: $itemSvg;
+        fill: $itemSvg;
+        height: 100%;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        text-align: center;
+        font-size: 12px;
+        span {
+          padding: 3px;
+        }
+        svg {
+          font : {
+            font-size: 1rem;
+            weight: bolder;
+          }
+        }
+      }
+      .comment__tool-resolve {
+        border-right: 1px solid $itemSvg;
+      }
+    }
+  }
+  .commentBlock__mainComment,
+  .comment__contents,
+  .editComment {
+    margin-left: 34px;
+    margin-bottom: 14px;
+    font-size: 14px;
+  }
+  .commentBlock__mainComment {
+    height: fit-content;
+    display: flex;
+    color: $itemText;
+  }
+  .commentBlock__mainComment_line {
+    width: 3px;
+    border-radius: 3px;
+    margin : {
+      left: 2px;
+      right: 8px;
+    }
+    flex-shrink: 0;
+    padding-bottom: 2px;
+    background: rgba(255, 212, 0, 0.8);
+  }
+  .commentInput {
+    width: calc(100% - 34px);
+    box-sizing: border-box;
+    input[type="text"] {
+      margin: 0;
+    }
+  }
+  .tool {
+    button {
+      &:hover {
+        background-color: $itemHover;
+        color: black;
+      }
+    }
+  }
+  .comment__tool-more {
+    position: relative;
+  }
+}
+.commentInput {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 0;
+  form {
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 1;
+    height: inherit;
+    position: relative;
+    width: calc(100% - 24px);
+    box-sizing: border-box;
+  }
+  input[type="text"] {
+    @include searchInput;
+    background-color: initial;
+    border: none;
+    padding: 0;
+    height: 100%;
+    width: 90%;
+    margin: 0 2.5%;
+    font-size: 14px;
+  }
+  .commentInput {
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+form button {
+  svg {
+    font-size: 1.3rem;
+    color: $itemSvg;
+    fill: $itemSvg;
+  }
+}
+#tool-more {
+  @include modalStyle;
+  width: 200px;
+  z-index: 25;
+  button {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    line-height: 16.8px;
+    min-height: 28px;
+    &:hover {
+      background-color: $itemHover;
+    }
+    svg {
+      width: 18px;
+      height: inherit;
+      font-weight: lighter;
+    }
+    span {
+      margin: {
+        left: 6px;
+      }
+    }
+  }
+  .aboutComments {
+    color: $itemText;
+    font-size: 13px;
+    border-top: 1px solid $lightMud;
+  }
+}

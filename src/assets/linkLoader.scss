@@ -1,0 +1,108 @@
+@import "./common";
+#linkLoader {
+  position: absolute;
+  @include modalStyle;
+  width: 300px;
+  .inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .search,
+  .page-list header {
+    padding: 7px 14px;
+  }
+  .page-item {
+    padding: 0px 14px;
+  }
+  .search,
+  .page-list {
+    width: 100%;
+    margin-top: 10px;
+  }
+  .page-list {
+    header {
+      font-size: 12px;
+      color: $mud;
+    }
+  }
+  input {
+    @include searchInput;
+    width: 100%;
+    margin: {
+      left: 0;
+      right: 0;
+    }
+    box-sizing: border-box;
+  }
+  .page-list__item-group {
+    margin-top: 10px;
+  }
+  .page-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    &:hover {
+      background-color: $itemHover;
+    }
+  }
+  .page__icon {
+    margin-right: 10px;
+  }
+  .page__inform {
+    width: calc(100% - 1.5rem + 10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+  }
+  .page__title,
+  .page__path {
+    text-overflow: ellipsis;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .page__title {
+    height: 100%;
+    font-size: 1rem;
+  }
+
+  .page__path {
+    margin-top: 6px;
+    font-size: 13px;
+    line-height: 1rem;
+    color: $mud;
+  }
+}
+#linkLoader_moreFn {
+  border-top: 1px solid $mud;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  & > div {
+    width: 100%;
+    padding: 4px;
+  }
+  svg {
+    margin-right: 10px;
+  }
+  button {
+    padding: 5px 10px;
+    display: flex;
+    &:hover {
+      background-color: $itemHover;
+    }
+  }
+}
+#linkedFn {
+  display: flex;
+  flex-direction: column;
+  span {
+    font-size: 13.5px;
+    line-height: 1.1rem;
+  }
+  svg {
+    font-size: 1.1rem;
+  }
+}
